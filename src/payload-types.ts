@@ -206,9 +206,39 @@ export interface Page {
   published?: boolean | null;
   blocks?:
     | {
+        variant: 'split' | 'centered' | 'video' | 'minimal';
+        backgroundType?: ('color' | 'image' | 'video') | null;
+        /**
+         * Use HEX or CSS color (e.g. #000000 or rgb(255,255,255)).
+         */
+        backgroundColor?: string | null;
+        backgroundImage?: (string | null) | Media;
+        videoUrl?: string | null;
         title?: string | null;
         subtitle?: string | null;
         image?: (string | null) | Media;
+        description?: string | null;
+        ctaText?: string | null;
+        ctaLink?: string | null;
+        Text?:
+          | {
+              headingType?: ('h1' | 'h2' | 'h3' | 'h4' | 'p') | null;
+              heading?: string | null;
+              /**
+               * Supports plain text or short paragraph content.
+               */
+              content?: string | null;
+              alignment?: ('left' | 'center' | 'right') | null;
+              /**
+               * Choose text color preset that matches your section background.
+               */
+              theme?: ('light' | 'dark' | 'accent') | null;
+              maxWidth?: ('sm' | 'md' | 'lg') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'textBlock';
+            }[]
+          | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'hero';
@@ -559,9 +589,33 @@ export interface PagesSelect<T extends boolean = true> {
         hero?:
           | T
           | {
+              variant?: T;
+              backgroundType?: T;
+              backgroundColor?: T;
+              backgroundImage?: T;
+              videoUrl?: T;
               title?: T;
               subtitle?: T;
               image?: T;
+              description?: T;
+              ctaText?: T;
+              ctaLink?: T;
+              Text?:
+                | T
+                | {
+                    textBlock?:
+                      | T
+                      | {
+                          headingType?: T;
+                          heading?: T;
+                          content?: T;
+                          alignment?: T;
+                          theme?: T;
+                          maxWidth?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
               id?: T;
               blockName?: T;
             };

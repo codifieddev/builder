@@ -12,7 +12,9 @@ export default async function TenantPage({ params }: { params: { slug?: string[]
 
   if (!tenant) return <div>Tenant not found for domain: {domain}</div>
 
-  const slug = (await params.slug?.join('/')) || 'home'
+  const par = await params
+
+  const slug = par.slug?.join('/') || 'home'
 
   const page = await getPageBySlug(tenant.id, slug)
 
