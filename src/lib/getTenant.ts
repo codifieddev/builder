@@ -20,8 +20,6 @@ export async function getTenantByDomain(domain: string, slug: string) {
   let ans = jsonm?.docs?.[0] ?? null
 
   // const page = await getPageBySlug(id.id, slug)
-
-  console.log(ans)
   return ans
   // return json?.docs?.[0] ?? null
 }

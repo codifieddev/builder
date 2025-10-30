@@ -57,5 +57,4 @@ export const Pages: CollectionConfig = {
       blocks: [Hero],
     },
   ],
-  hooks: {},
 }

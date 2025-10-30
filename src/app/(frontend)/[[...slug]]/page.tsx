@@ -1,5 +1,5 @@
 import { getTenantByDomain } from '@/lib/getTenant'
-import { getPageBySlug } from '@/lib/getPage'
+
 import { BlockRenderer } from '@/components/BlockRenderer'
 import { headers } from 'next/headers'
 
